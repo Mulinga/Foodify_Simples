@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background: #2c7a4b;
+    padding: 15px 40px;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero {
+    height: 80vh;
+    background: url('../assets/images/farm-bg.jpg') center/cover no-repeat;
+    padding: 100px 40px;
+    color: white;
+}
+
+.cta {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #4caf50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
