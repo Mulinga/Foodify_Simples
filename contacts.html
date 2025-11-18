@@ -5,39 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
 
-    <!-- EmailJS SDK (required!) -->
-    <!--<script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.11.0/email.min.js"></script>-->
+    <!-- WORKING EmailJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
+    <script>
+        // Initialize EmailJS AFTER the script loads
+        (function() {
+            emailjs.init("EzSEUlM8M5oSJWpr6");
+        })();
+    </script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        form {
-            max-width: 400px;
-            margin: auto;
-        }
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        form { max-width: 400px; margin: auto; }
         input, textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 6px;
         }
         button {
             padding: 12px 20px;
             background: #007BFF;
-            color: #fff;
+            color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
         }
-        #status {
-            margin-top: 15px;
-            text-align: center;
-        }
+        #status { margin-top: 15px; text-align: center; }
     </style>
 </head>
 
@@ -54,26 +49,17 @@
         <p id="status"></p>
     </form>
 
-    <!-- Contact Form JS -->
     <script>
-        // Initialize EmailJS
-        emailjs.init('EzSEUlM8M5oSJWpr6'); 
-
-        // Handle form submission
         document.getElementById("contactForm").addEventListener("submit", function(e) {
             e.preventDefault();
 
             document.getElementById("status").innerHTML = "Sending...";
 
-            emailjs.send(
-                "service_2zei705",
-                "template_st0kwd7",
-                {
-                    name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
-                    message: document.getElementById("message").value
-                }
-            )
+            emailjs.send("service_2zei705", "template_st0kwd7", {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            })
             .then(function() {
                 document.getElementById("status").innerHTML = "Message sent successfully!";
                 document.getElementById("contactForm").reset();
